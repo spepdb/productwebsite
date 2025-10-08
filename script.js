@@ -128,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounter('students-counter', 0, 10000, 2000);
     animateCounter('reviews-counter', 0, 5000, 2000);
     animateCounter('countries-counter', 0, 50, 2000);
+    animateCounter('viewers-counter', 0, Math.floor(Math.random() * 20) + 5, 1000); // Fake live viewers
 
     // Testimonials Carousel
     const testimonials = document.querySelectorAll('.testimonial');
@@ -170,6 +171,39 @@ document.addEventListener('DOMContentLoaded', () => {
         if (email) {
             signupMessage.textContent = `Thank you for subscribing with ${email}!`;
             signupForm.reset();
+        }
+    });
+
+    // Exit Intent Popup
+    const exitModal = document.getElementById('exit-modal');
+    const exitClose = document.querySelector('.exit-close');
+    const discountForm = document.getElementById('discount-form');
+    const discountMessage = document.getElementById('discount-message');
+    let shown = false;
+
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 0 && !shown) {
+            shown = true;
+            exitModal.style.display = 'block';
+        }
+    });
+
+    exitClose.onclick = function() {
+        exitModal.style.display = 'none';
+    };
+
+    window.onclick = function(event) {
+        if (event.target === exitModal) {
+            exitModal.style.display = 'none';
+        }
+    };
+
+    discountForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = discountForm.querySelector('input').value;
+        if (email) {
+            discountMessage.textContent = `10% discount code sent to ${email}! Use code: DISCOUNT10`;
+            discountForm.reset();
         }
     });
 });
