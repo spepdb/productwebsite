@@ -4,146 +4,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Online Course Sales Page</title>
+    <title>SkillForge - Online Course</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
     <!-- Announcement Bar -->
     <div class="announcement-bar">
         <div class="marquee">
-            <span>Limited Time Offer: 50% Off! 🚀</span>
-            <span>Enroll Now and Transform Your Skills!</span>
-            <span>Over 10,000 Students Enrolled Already!</span>
-            <span>Money-Back Guarantee!</span>
-            <span>Limited Spots Available!</span>
+            <span><i class="fas fa-bolt"></i> Limited Time Offer: 50% Off!</span>
+            <span><i class="fas fa-star"></i> Enroll Now and Transform Your Skills!</span>
+            <span><i class="fas fa-users"></i> Over 10,000 Students Enrolled!</span>
+            <span><i class="fas fa-shield-alt"></i> 30-Day Money-Back Guarantee!</span>
         </div>
     </div>
 
     <!-- Header -->
     <header id="header">
-        <h1>Master Your Skills with Our Premium Course</h1>
+        <div class="logo-container">
+            <img src="https://via.placeholder.com/100x50?text=SkillForge+Logo" alt="SkillForge Logo" class="logo">
+            <h1>SkillForge</h1>
+        </div>
         <nav>
             <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#benefits">Benefits</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#hero" class="smooth-scroll"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#benefits" class="smooth-scroll"><i class="fas fa-check-circle"></i> Benefits</a></li>
+                <li><a href="#testimonials" class="smooth-scroll"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+                <li><a href="#faq" class="smooth-scroll"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="#signup" class="smooth-scroll"><i class="fas fa-envelope"></i> Signup</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <img src="https://via.placeholder.com/600x400?text=Course+Image" alt="Course Image" class="product-image">
-        <div class="content">
-            <h2>Ultimate Online Course: Advanced [Topic] Mastery</h2>
-            <p>This comprehensive course dives deep into [Topic], covering beginner fundamentals to advanced techniques. You'll learn through interactive videos, hands-on projects, and real-world case studies. Gain skills in [specific skill 1], [specific skill 2], and [specific skill 3]. Perfect for professionals, students, and enthusiasts looking to level up.</p>
-            <div class="price">$99.99 <span class="original-price">$199.99</span></div>
-            <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
-            <div id="cart-count" class="cart-count">Items in Cart: 0</div>
-            <button class="checkout" onclick="openCheckoutModal()">Go to Checkout</button>
+    <!-- Hero Section with Parallax and Countdown -->
+    <section id="hero" class="hero parallax">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <img src="https://via.placeholder.com/600x400?text=Course+Image" alt="Course Image" class="product-image animate-on-scroll">
+            <div class="content animate-on-scroll">
+                <h2>Ultimate Online Course: From Beginner to Pro</h2>
+                <p>This comprehensive course covers [Topic] in depth, including advanced techniques, real-world projects, and expert tips. Join thousands of satisfied learners today!</p>
+                <div class="price">$99.99 <span class="original-price">$199.99</span></div>
+                <div class="urgency">
+                    <i class="fas fa-clock"></i> Offer Ends In: <span id="timer">00:00:00</span>
+                </div>
+                <div class="button-group">
+                    <a href="product.html" class="btn primary-btn"><i class="fas fa-book"></i> View Course Details</a>
+                    <button class="btn add-to-cart" onclick="addToCart()"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                    <button class="btn checkout" onclick="goToCheckout()"><i class="fas fa-credit-card"></i> Go to Checkout</button>
+                    <a href="#signup" class="btn secondary-btn smooth-scroll"><i class="fas fa-info-circle"></i> Learn More</a>
+                </div>
+                <div id="cart-count" class="cart-count">Items in Cart: 0</div>
+            </div>
         </div>
     </section>
 
-    <!-- Urgency Timer -->
-    <div class="urgency">
-        Offer Ends In: <span id="timer">00:00:00</span>
-    </div>
+    <!-- Video Trailer Section -->
+    <section id="video-trailer" class="video-section animate-on-scroll">
+        <h2><i class="fas fa-video"></i> Watch the Course Trailer</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Course Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
 
     <!-- Benefits Section -->
-    <section id="benefits" class="benefits">
-        <h2>Why Choose This Course?</h2>
+    <section id="benefits" class="benefits animate-on-scroll">
+        <h2><i class="fas fa-check-circle"></i> Why Choose This Course?</h2>
         <ul>
-            <li>Lifetime Access to All Materials, including updates</li>
-            <li>Expert Instructors with 10+ Years of Real-World Experience</li>
-            <li>Interactive Quizzes, Assignments, and Capstone Projects</li>
-            <li>Private Community Forum for Networking and Support</li>
-            <li>Printable Certificate of Completion Recognized by Industry Leaders</li>
-            <li>Bonus Modules on Emerging Trends in [Topic]</li>
+            <li><i class="fas fa-infinity"></i> Lifetime Access to All Materials and Updates</li>
+            <li><i class="fas fa-chalkboard-teacher"></i> Expert Instructors with 10+ Years of Experience</li>
+            <li><i class="fas fa-puzzle-piece"></i> Interactive Quizzes, Assignments, and Projects</li>
+            <li><i class="fas fa-users"></i> Private Community Forum for Support</li>
+            <li><i class="fas fa-download"></i> Downloadable Resources and Templates</li>
+            <li><i class="fas fa-certificate"></i> Certificate of Completion Recognized by Industry</li>
         </ul>
     </section>
 
+    <!-- Social Proof Counter -->
+    <section class="social-proof animate-on-scroll">
+        <h2><i class="fas fa-globe"></i> Join Our Growing Community</h2>
+        <div class="counters">
+            <div class="counter">
+                <span id="students-counter">0</span>+
+                <p>Students Enrolled</p>
+            </div>
+            <div class="counter">
+                <span id="reviews-counter">0</span>+
+                <p>5-Star Reviews</p>
+            </div>
+            <div class="counter">
+                <span id="countries-counter">0</span>+
+                <p>Countries</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Carousel -->
-    <section id="testimonials" class="testimonials">
-        <h2>What Our Students Say</h2>
+    <section id="testimonials" class="testimonials animate-on-scroll">
+        <h2><i class="fas fa-quote-left"></i> What Our Students Say</h2>
         <div class="carousel">
             <div class="testimonial active">
-                <p>"This course changed my life! The depth of content is unmatched."</p>
+                <p>"This course changed my career! The content is top-notch and easy to follow."</p>
                 <cite>- John Doe, Software Engineer</cite>
             </div>
             <div class="testimonial">
-                <p>"Amazing content and easy to follow. Worth every penny."</p>
-                <cite>- Jane Smith, Marketing Specialist</cite>
+                <p>"Amazing value for money. I learned more here than in my college classes."</p>
+                <cite>- Jane Smith, Freelancer</cite>
             </div>
             <div class="testimonial">
-                <p>"The best investment I've made in my education. Highly interactive!"</p>
+                <p>"The community support is fantastic. Highly recommend to anyone serious about [Topic]."</p>
                 <cite>- Alex Johnson, Entrepreneur</cite>
             </div>
-            <div class="testimonial">
-                <p>"Incredible value with practical examples and community support."</p>
-                <cite>- Emily Davis, Designer</cite>
-            </div>
         </div>
-        <button class="carousel-prev" onclick="prevTestimonial()">&#10094;</button>
-        <button class="carousel-next" onclick="nextTestimonial()">&#10095;</button>
-    </section>
-
-    <!-- FAQ Section with Accordion -->
-    <section id="faq" class="faq">
-        <h2>Frequently Asked Questions</h2>
-        <div class="accordion">
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">What is included in the course?</button>
-                <div class="accordion-content">
-                    <p>Over 50 hours of video lessons, downloadable resources, interactive quizzes, assignments, capstone projects, and lifetime access to updates.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">Is there a refund policy?</button>
-                <div class="accordion-content">
-                    <p>Yes, we offer a 30-day money-back guarantee if you're not satisfied.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">How long do I have access to the course?</button>
-                <div class="accordion-content">
-                    <p>You get lifetime access, including all future updates and bonus materials.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">What if I have questions during the course?</button>
-                <div class="accordion-content">
-                    <p>Our private community forum and email support are available 24/7 for any queries.</p>
-                </div>
-            </div>
+        <div class="carousel-controls">
+            <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
-    <!-- Checkout Modal -->
-    <div id="checkout-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeCheckoutModal()">&times;</span>
-            <h2>Checkout</h2>
-            <p>Total Items: <span id="modal-cart-count">0</span></p>
-            <p>Total Price: <span id="modal-total-price">$0.00</span></p>
-            <form id="checkout-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                <label for="card">Card Number:</label>
-                <input type="text" id="card" placeholder="1234 5678 9012 3456" required>
-                <!-- In real site, integrate with Stripe or similar -->
-                <button type="submit">Pay Now</button>
-            </form>
-        </div>
-    </div>
+    <!-- Guarantee Section -->
+    <section class="guarantee animate-on-scroll">
+        <h2><i class="fas fa-shield-alt"></i> 100% Satisfaction Guarantee</h2>
+        <p>If you're not completely satisfied within 30 days, get a full refund – no questions asked.</p>
+        <img src="https://via.placeholder.com/200x100?text=Trust+Badge" alt="Trust Badge" class="trust-badge">
+        <img src="https://via.placeholder.com/200x100?text=Secure+Payment" alt="Secure Payment" class="trust-badge">
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq animate-on-scroll">
+        <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+        <details>
+            <summary>What is included in the course?</summary>
+            <p>Over 50 video lessons, downloadable resources, quizzes, projects, and lifetime access.</p>
+        </details>
+        <details>
+            <summary>Is there a refund policy?</summary>
+            <p>Yes, 30-day money-back guarantee.</p>
+        </details>
+        <details>
+            <summary>How long do I have access?</summary>
+            <p>Lifetime access, including all future updates.</p>
+        </details>
+        <details>
+            <summary>Do I need prior experience?</summary>
+            <p>No, the course is designed for beginners to advanced learners.</p>
+        </details>
+    </section>
+
+    <!-- Email Signup Section -->
+    <section id="signup" class="signup animate-on-scroll">
+        <h2><i class="fas fa-envelope"></i> Get Exclusive Updates and Discounts</h2>
+        <form id="signup-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn primary-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+        </form>
+        <p id="signup-message"></p>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Your Course Company. All rights reserved.</p>
+        <p><i class="fas fa-copyright"></i> 2025 SkillForge. All rights reserved.</p>
     </footer>
+
+    <!-- Modal for Cart/Checkout -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2><i class="fas fa-shopping-cart"></i> Checkout</h2>
+            <p>Your cart has <span id="modal-cart-count">0</span> items.</p>
+            <p>Total: <span id="modal-total">$0.00</span></p>
+            <button class="btn primary-btn" onclick="completePurchase()"><i class="fas fa-credit-card"></i> Complete Purchase</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
