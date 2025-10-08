@@ -1,10 +1,16 @@
-/* styles.css (updated to include button styling and icons) */
+/* styles.css */
+:root {
+    --neon-blue: #00bfff;
+    --black: #000;
+    --white: #fff;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--white);
+    color: var(--black);
     overflow-x: hidden;
 }
 
@@ -36,7 +42,7 @@ body {
 }
 
 header {
-    background-color: #fff;
+    background-color: var(--white);
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -65,6 +71,7 @@ header.sticky {
 header h1 {
     margin: 0;
     font-size: 2em;
+    color: var(--neon-blue);
 }
 
 nav ul {
@@ -80,8 +87,12 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: var(--black);
     font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: var(--neon-blue);
 }
 
 nav ul li a i {
@@ -134,6 +145,7 @@ nav ul li a i {
 .hero h2 {
     font-size: 3em;
     margin-bottom: 15px;
+    color: var(--neon-blue);
 }
 
 .hero p {
@@ -144,7 +156,7 @@ nav ul li a i {
 .price {
     font-size: 2em;
     font-weight: bold;
-    color: #e60000;
+    color: var(--black);
     margin-bottom: 25px;
 }
 
@@ -155,12 +167,15 @@ nav ul li a i {
 }
 
 .urgency {
-    background-color: #ffe6e6;
+    background-color: #e6faff;
     padding: 15px;
     font-weight: bold;
-    color: #e60000;
+    color: var(--neon-blue);
     border-radius: 8px;
     margin-bottom: 20px;
+    white-space: normal;
+    overflow: visible;
+    width: 100%;
 }
 
 .urgency i {
@@ -176,7 +191,7 @@ nav ul li a i {
 
 .btn {
     padding: 15px 30px;
-    border: 2px solid #333;
+    border: 2px solid var(--neon-blue);
     border-radius: 8px;
     font-size: 1.2em;
     cursor: pointer;
@@ -188,37 +203,37 @@ nav ul li a i {
 }
 
 .primary-btn {
-    background-color: #28a745;
-    color: white;
-    border-color: #28a745;
+    background-color: var(--neon-blue);
+    color: var(--white);
+    border-color: var(--neon-blue);
 }
 
 .primary-btn:hover {
-    background-color: #218838;
+    background-color: #009acd;
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .secondary-btn {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
+    background-color: var(--white);
+    color: var(--neon-blue);
+    border-color: var(--neon-blue);
 }
 
 .secondary-btn:hover {
-    background-color: #0069d9;
+    background-color: #e6faff;
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .add-to-cart, .checkout {
-    background-color: #28a745;
-    color: white;
-    border: 2px solid #28a745;
+    background-color: var(--neon-blue);
+    color: var(--white);
+    border: 2px solid var(--neon-blue);
 }
 
 .add-to-cart:hover, .checkout:hover {
-    background-color: #218838;
+    background-color: #009acd;
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
@@ -229,24 +244,14 @@ nav ul li a i {
     display: none;
 }
 
-.video-section {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #fff;
-}
-
-.video-section h2 i {
-    margin-right: 10px;
-}
-
-.video-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-iframe {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.badge {
+    background-color: var(--neon-blue);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 1em;
+    margin-top: 10px;
+    display: inline-block;
 }
 
 .benefits {
@@ -258,6 +263,7 @@ iframe {
 .benefits h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
+    color: var(--neon-blue);
 }
 
 .benefits h2 i {
@@ -286,14 +292,18 @@ iframe {
 .benefits li i {
     position: absolute;
     left: 0;
-    color: #28a745;
+    color: var(--neon-blue);
     font-size: 1.5em;
 }
 
 .social-proof {
     padding: 50px 20px;
-    background-color: #fff;
+    background-color: var(--white);
     text-align: center;
+}
+
+.social-proof h2 {
+    color: var(--neon-blue);
 }
 
 .social-proof h2 i {
@@ -304,22 +314,29 @@ iframe {
     display: flex;
     justify-content: center;
     gap: 50px;
+    flex-wrap: wrap;
 }
 
 .counter {
     font-size: 2em;
     font-weight: bold;
+    color: var(--neon-blue);
 }
 
 .counter p {
     font-size: 1em;
     margin-top: 10px;
+    color: var(--black);
 }
 
 .testimonials {
     padding: 50px 20px;
     background-color: #f0f0f0;
     text-align: center;
+}
+
+.testimonials h2 {
+    color: var(--neon-blue);
 }
 
 .testimonials h2 i {
@@ -336,7 +353,7 @@ iframe {
 .testimonial {
     display: none;
     padding: 30px;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: opacity 0.5s;
@@ -345,6 +362,12 @@ iframe {
 .testimonial.active {
     display: block;
     opacity: 1;
+}
+
+.testimonial .stars {
+    color: var(--neon-blue);
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 .testimonial p {
@@ -368,16 +391,18 @@ iframe {
     font-size: 2em;
     cursor: pointer;
     margin: 0 20px;
+    color: var(--neon-blue);
 }
 
 .guarantee {
     padding: 50px 20px;
     text-align: center;
-    background-color: #fff;
+    background-color: var(--white);
 }
 
 .guarantee h2 {
     font-size: 2.5em;
+    color: var(--neon-blue);
 }
 
 .guarantee h2 i {
@@ -394,15 +419,44 @@ iframe {
     max-width: 150px;
 }
 
-.faq {
+.payments {
     padding: 50px 20px;
     background-color: #f0f0f0;
+    text-align: center;
+}
+
+.payments h2 {
+    font-size: 2.5em;
+    color: var(--neon-blue);
+    margin-bottom: 30px;
+}
+
+.payments h2 i {
+    margin-right: 10px;
+}
+
+.crypto-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.crypto-icon {
+    width: 50px;
+    height: auto;
+}
+
+.faq {
+    padding: 50px 20px;
+    background-color: var(--white);
     text-align: center;
 }
 
 .faq h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
+    color: var(--neon-blue);
 }
 
 .faq h2 i {
@@ -413,7 +467,7 @@ iframe {
     max-width: 800px;
     margin: 0 auto 20px;
     text-align: left;
-    background-color: #fff;
+    background-color: #f0f0f0;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -423,12 +477,17 @@ iframe {
     font-weight: bold;
     cursor: pointer;
     font-size: 1.3em;
+    color: var(--neon-blue);
 }
 
 .signup {
     padding: 50px 20px;
-    background-color: #fff;
+    background-color: #f0f0f0;
     text-align: center;
+}
+
+.signup h2 {
+    color: var(--neon-blue);
 }
 
 .signup h2 i {
@@ -458,12 +517,12 @@ iframe {
 #signup-message {
     margin-top: 20px;
     font-size: 1.2em;
-    color: #28a745;
+    color: var(--neon-blue);
 }
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: var(--black);
+    color: var(--white);
     text-align: center;
     padding: 20px;
     margin-top: 20px;
@@ -487,7 +546,7 @@ footer i {
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: var(--white);
     margin: 15% auto;
     padding: 30px;
     border-radius: 8px;
@@ -506,7 +565,11 @@ footer i {
 }
 
 .close:hover {
-    color: #000;
+    color: var(--black);
+}
+
+.modal h2 {
+    color: var(--neon-blue);
 }
 
 .modal h2 i {
@@ -515,6 +578,19 @@ footer i {
 
 .modal button {
     margin-top: 20px;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal input {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2em;
 }
 
 @keyframes fadeIn {
@@ -535,4 +611,86 @@ footer i {
 
 .smooth-scroll {
     scroll-behavior: smooth;
+}
+
+.sticky-buy-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    z-index: 999;
+}
+
+.sticky-buy-bar button {
+    width: 90%;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .product-image {
+        max-width: 100%;
+    }
+
+    .content {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .urgency {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    nav ul li {
+        margin: 0 5px;
+    }
+
+    .counters {
+        gap: 20px;
+    }
+
+    .crypto-icons {
+        gap: 10px;
+    }
+
+    .sticky-buy-bar {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .hero h2 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
 }
