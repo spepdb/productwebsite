@@ -17,6 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .announcement-bar {
@@ -49,7 +50,7 @@ body {
 
 header {
     background-color: var(--dark-bg);
-    padding: 20px;
+    padding: 15px 20px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: sticky;
@@ -81,32 +82,6 @@ header h1 {
     margin: 0;
     font-size: 2em;
     color: var(--neon-blue);
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: var(--white);
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-nav ul li a:hover {
-    color: var(--neon-blue);
-}
-
-nav ul li a i {
-    margin-right: 5px;
 }
 
 .cart-icon {
@@ -155,6 +130,7 @@ nav ul li a i {
     padding: 20px;
     max-width: 800px;
     text-align: center;
+    width: 90%;
 }
 
 .hero h2 {
@@ -658,14 +634,6 @@ footer i {
 
     .sticky-add-to-cart {
         bottom: 10px;
-    }
-
-    nav ul li {
-        margin: 0 10px;
-    }
-
-    .counters {
-        gap: 15px;
     }
 
     .crypto-icons {
