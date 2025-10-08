@@ -1,0 +1,100 @@
+<!-- payment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - SkillForge</title>
+
+    <!-- Styles from main site (assuming styles.css is shared) -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="payment.js" defer></script>
+</head>
+<body>
+    <div class="payment-container neon-card">
+        <h2>Complete Your Payment</h2>
+
+        <!-- Pricing Section -->
+        <div class="price-container">
+            <span class="original-price">$44.99</span>
+            <span class="new-price">$19.99</span>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="urgency">
+            <i class="fas fa-clock"></i> Send your funds in by: <span id="saleCountdown">30:00</span>
+        </div>
+
+        <!-- Crypto Selector -->
+        <div class="crypto-selector">
+            <div class="crypto-option selected" data-currency="btc">
+                <img src="assets/bitcoin.png" alt="Bitcoin">
+                <span>Bitcoin (BTC)</span>
+            </div>
+            <div class="crypto-option" data-currency="eth">
+                <img src="assets/ethereum.png" alt="Ethereum">
+                <span>Ethereum (ETH)</span>
+            </div>
+            <div class="crypto-option" data-currency="sol">
+                <img src="assets/solana.png" alt="Solana">
+                <span>Solana (SOL)</span>
+            </div>
+            <div class="crypto-option" data-currency="xmr">
+                <img src="assets/monero.png" alt="Monero">
+                <span>Monero (XMR)</span>
+            </div>
+            <div class="crypto-option" data-currency="usdc">
+                <img src="assets/usdc.png" alt="USDC">
+                <span>USDC</span>
+            </div>
+            <div class="crypto-option" data-currency="usdt">
+                <img src="assets/usdt.png" alt="USDT">
+                <span>USDT</span>
+            </div>
+            <div class="crypto-option" data-currency="bnb">
+                <img src="assets/bnb.png" alt="BNB">
+                <span>BNB</span>
+            </div>
+            <div class="crypto-option" data-currency="xrp">
+                <img src="assets/xrp.png" alt="XRP">
+                <span>XRP</span>
+            </div>
+        </div>
+
+        <!-- Conversion Details -->
+        <div class="converter-box">
+            <div class="crypto-details">
+                <div class="crypto-amount">
+                    <span id="cryptoAmount">0.000000</span> <span id="cryptoSymbol">BTC</span>
+                </div>
+                <div class="crypto-usd">
+                    <span class="new-price">$19.99 USD</span>
+                </div>
+                <div class="rate-info">
+                    <span id="rateInfo">@ $0.00 per coin</span>
+                </div>
+            </div>
+
+            <!-- Payment Address -->
+            <div class="payment-address">
+                <p>Send to:</p>
+                <span id="paymentAddress">Loading...</span>
+                <button class="btn primary-btn" onclick="copyAddress()">Copy Address</button>
+            </div>
+        </div>
+
+        <!-- Price Valid Timer -->
+        <div class="time-left">
+            Price valid for: <span id="priceValidTimer">30:00</span>
+        </div>
+
+        <!-- Warning Text -->
+        <p class="warning-text">Transactions sent To/From smart contracts are not accepted.</p>
+
+        <!-- Confirmation Button -->
+        <button class="btn primary-btn confirm-button">Payment Completed</button>
+    </div>
+</body>
+</html>
