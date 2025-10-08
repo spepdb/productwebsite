@@ -8,7 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalCartCount = document.getElementById('modal-cart-count');
     const modalTotal = document.getElementById('modal-total');
     const closeModal = document.querySelector('.close');
-    const pricePerItem = 99.99;
+    const pricePerItem = 19.99;
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const cartTimer = document.getElementById('cart-timer');
+    const cartBadge = document.getElementById('cart-badge');
+    let cartReserveTimer;
 
     function updateCartDisplay() {
         cartCount.textContent = `Items in Cart: ${cartItems}`;
@@ -16,16 +22,65 @@ document.addEventListener('DOMContentLoaded', () => {
         checkoutBtn.style.display = cartItems > 0 ? 'inline-block' : 'none';
         modalCartCount.textContent = cartItems;
         modalTotal.textContent = `$${(cartItems * pricePerItem).toFixed(2)}`;
+        cartBadge.textContent = cartItems;
+        cartBadge.style.display = cartItems > 0 ? 'inline' : 'none';
         localStorage.setItem('cartItems', cartItems);
+        updateCartSidebar();
     }
 
-    window.addToCart = function() {
+    function updateCartSidebar() {
+        cartItemsContainer.innerHTML = '';
+        if (cartItems > 0) {
+            const item = document.createElement('div');
+            item.classList.add('cart-item');
+            item.innerHTML = `<span>Ultimate Online Course</span><span>$${pricePerItem.toFixed(2)} x ${cartItems}</span>`;
+            cartItemsContainer.appendChild(item);
+        } else {
+            cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        }
+        cartTotal.textContent = `$${(cartItems * pricePerItem).toFixed(2)}`;
+    }
+
+    window.addToCart = function(openCart = false) {
         cartItems++;
         updateCartDisplay();
+        if (openCart) {
+            toggleCart();
+            startCartReserveTimer();
+        }
     };
+
+    window.toggleCart = function() {
+        cartSidebar.classList.toggle('open');
+        if (cartSidebar.classList.contains('open') && cartItems > 0) {
+            startCartReserveTimer();
+        } else {
+            clearInterval(cartReserveTimer);
+        }
+    };
+
+    function startCartReserveTimer() {
+        clearInterval(cartReserveTimer);
+        let timeLeft = 5 * 60; // 5 minutes
+        cartTimer.textContent = '05:00';
+        cartReserveTimer = setInterval(() => {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            cartTimer.textContent = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+            if (timeLeft <= 0) {
+                clearInterval(cartReserveTimer);
+                alert('Your cart reservation has expired.');
+                cartItems = 0;
+                updateCartDisplay();
+                toggleCart();
+            }
+        }, 1000);
+    }
 
     window.goToCheckout = function() {
         modal.style.display = 'block';
+        toggleCart(); // Close cart when going to checkout
     };
 
     closeModal.onclick = function() {
@@ -47,29 +102,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCartDisplay();
 
-    // Urgency Timer (24 hours countdown)
-    function startTimer(duration, display) {
-        let timer = duration, hours, minutes, seconds;
+    // Urgency Timer (random between 1-6 hours)
+    function startTimer(display) {
+        const randomHours = Math.floor(Math.random() * 5) + 1; // 1 to 5 hours
+        const randomMinutes = Math.floor(Math.random() * 60);
+        let timer = (randomHours * 3600) + (randomMinutes * 60);
         const interval = setInterval(() => {
-            hours = Math.floor(timer / 3600);
-            minutes = Math.floor((timer % 3600) / 60);
-            seconds = Math.floor(timer % 60);
-
-            hours = hours < 10 ? '0' + hours : hours;
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-
-            display.textContent = hours + ':' + minutes + ':' + seconds;
-
+            const hours = Math.floor(timer / 3600);
+            const minutes = Math.floor((timer % 3600) / 60);
+            const seconds = timer % 60;
+            display.textContent = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
             if (--timer < 0) {
-                timer = duration; // Reset
+                timer = (randomHours * 3600) + (randomMinutes * 60); // Reset to same random time
             }
         }, 1000);
     }
 
-    const twentyFourHours = 24 * 60 * 60;
     const timerDisplay = document.getElementById('timer');
-    startTimer(twentyFourHours, timerDisplay);
+    startTimer(timerDisplay);
 
     // Parallax Effect
     window.addEventListener('scroll', () => {
