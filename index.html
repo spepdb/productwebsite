@@ -30,8 +30,6 @@
                 <li><a href="#hero" class="smooth-scroll"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#benefits" class="smooth-scroll"><i class="fas fa-check-circle"></i> Benefits</a></li>
                 <li><a href="#testimonials" class="smooth-scroll"><i class="fas fa-quote-left"></i> Testimonials</a></li>
-                <li><a href="#faq" class="smooth-scroll"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                <li><a href="#signup" class="smooth-scroll"><i class="fas fa-envelope"></i> Signup</a></li>
             </ul>
         </nav>
         <div class="cart-icon" onclick="toggleCart()">
@@ -40,25 +38,19 @@
         </div>
     </header>
 
-    <!-- Hero Section with Parallax and Countdown -->
+    <!-- Hero Section -->
     <section id="hero" class="hero parallax">
         <div class="hero-bg"></div>
         <div class="hero-content neon-card">
-            <img src="https://via.placeholder.com/600x400?text=Course+Image" alt="Course Image" class="product-image animate-on-scroll">
-            <div class="content animate-on-scroll">
-                <h2>Ultimate Online Course: From Beginner to Pro</h2>
-                <p>This comprehensive course covers [Topic] in depth, including advanced techniques, real-world projects, and expert tips. Join thousands of satisfied learners today!</p>
-                <div class="price">$19.99 <span class="original-price">$44.99</span></div>
-                <div class="urgency">
-                    <i class="fas fa-clock"></i> Offer Ends In: <span id="timer">00:00:00</span>
-                </div>
-                <div class="button-group">
-                    <a href="#benefits" class="btn primary-btn smooth-scroll"><i class="fas fa-book"></i> View Course Details</a>
-                    <button class="btn add-to-cart" onclick="addToCart(true)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-                    <button class="btn checkout" onclick="goToCheckout()"><i class="fas fa-credit-card"></i> Go to Checkout</button>
-                </div>
-                <div id="cart-count" class="cart-count">Items in Cart: 0</div>
-                <span class="badge">Best Seller <i class="fas fa-fire"></i></span>
+            <h2>Ultimate Online Course: From Beginner to Pro</h2>
+            <p>This comprehensive course covers [Topic] in depth, including advanced techniques, real-world projects, and expert tips. Join thousands of satisfied learners today!</p>
+            <div class="urgency">
+                <i class="fas fa-clock"></i> Offer Ends In: <span id="timer">00:00:00</span>
+            </div>
+            <div class="button-group">
+                <a href="#benefits" class="btn primary-btn smooth-scroll"><i class="fas fa-book"></i> View Course Details</a>
+                <button class="btn add-to-cart" onclick="addToCart(true)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                <button class="btn checkout" onclick="goToCheckout()"><i class="fas fa-credit-card"></i> Go to Checkout</button>
             </div>
         </div>
     </section>
@@ -66,6 +58,7 @@
     <!-- Benefits Section (Course Details) -->
     <section id="benefits" class="benefits animate-on-scroll neon-card">
         <h2><i class="fas fa-check-circle"></i> Course Details</h2>
+        <div class="price">$19.99 <span class="original-price">$44.99</span> - One-Time Payment</div>
         <ul>
             <li><i class="fas fa-check"></i> Lifetime Access to All Materials and Updates</li>
             <li><i class="fas fa-check"></i> Expert Instructors with 10+ Years of Experience</li>
@@ -74,6 +67,16 @@
             <li><i class="fas fa-check"></i> Downloadable Resources and Templates</li>
             <li><i class="fas fa-check"></i> Certificate of Completion Recognized by Industry</li>
         </ul>
+        <div class="crypto-icons">
+            <img src="assets/bitcoin.png" alt="Bitcoin" class="crypto-icon">
+            <img src="assets/ethereum.png" alt="Ethereum" class="crypto-icon">
+            <img src="assets/solana.png" alt="Solana" class="crypto-icon">
+            <img src="assets/monero.png" alt="Monero" class="crypto-icon">
+            <img src="assets/usdc.png" alt="USDC" class="crypto-icon">
+            <img src="assets/usdt.png" alt="USDT" class="crypto-icon">
+            <img src="assets/bnb.png" alt="BNB" class="crypto-icon">
+            <img src="assets/xrp.png" alt="XRP" class="crypto-icon">
+        </div>
     </section>
 
     <!-- Social Proof Counter -->
@@ -131,52 +134,6 @@
         <p>If you're not completely satisfied within 30 days, get a full refund – no questions asked.</p>
         <img src="assets/trust-badge.png" alt="Trust Badge" class="trust-badge">
         <img src="assets/secure-payment.png" alt="Secure Payment" class="trust-badge">
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="faq animate-on-scroll neon-card">
-        <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
-        <details>
-            <summary>What is included in the course?</summary>
-            <p>Over 50 video lessons, downloadable resources, quizzes, projects, and lifetime access.</p>
-        </details>
-        <details>
-            <summary>Is there a refund policy?</summary>
-            <p>Yes, 30-day money-back guarantee.</p>
-        </details>
-        <details>
-            <summary>How long do I have access?</summary>
-            <p>Lifetime access, including all future updates.</p>
-        </details>
-        <details>
-            <summary>Do I need prior experience?</summary>
-            <p>No, the course is designed for beginners to advanced learners.</p>
-        </details>
-    </section>
-
-    <!-- Payments Section (moved lower) -->
-    <section class="payments animate-on-scroll neon-card">
-        <h2><i class="fas fa-coins"></i> We Accept Cryptocurrencies</h2>
-        <div class="crypto-icons">
-            <img src="assets/bitcoin.png" alt="Bitcoin" class="crypto-icon">
-            <img src="assets/ethereum.png" alt="Ethereum" class="crypto-icon">
-            <img src="assets/solana.png" alt="Solana" class="crypto-icon">
-            <img src="assets/monero.png" alt="Monero" class="crypto-icon">
-            <img src="assets/usdc.png" alt="USDC" class="crypto-icon">
-            <img src="assets/usdt.png" alt="USDT" class="crypto-icon">
-            <img src="assets/bnb.png" alt="BNB" class="crypto-icon">
-            <img src="assets/xrp.png" alt="XRP" class="crypto-icon">
-        </div>
-    </section>
-
-    <!-- Email Signup Section -->
-    <section id="signup" class="signup animate-on-scroll neon-card">
-        <h2><i class="fas fa-envelope"></i> Get Exclusive Updates and Discounts</h2>
-        <form id="signup-form">
-            <input type="email" placeholder="Enter your email" required>
-            <button type="submit" class="btn primary-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
-        </form>
-        <p id="signup-message"></p>
     </section>
 
     <!-- Footer -->
