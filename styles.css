@@ -3,20 +3,22 @@
     --neon-blue: #00bfff;
     --black: #000;
     --white: #fff;
+    --dark-bg: #1a1a1a;
+    --neon-glow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
 }
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--white);
-    color: var(--black);
+    background-color: var(--dark-bg);
+    color: var(--white);
     overflow-x: hidden;
 }
 
 .announcement-bar {
-    background-color: #ffcc00;
-    color: #333;
+    background-color: #e6faff; /* Light neon blue */
+    color: var(--black);
     overflow: hidden;
     white-space: nowrap;
     position: relative;
@@ -42,7 +44,7 @@ body {
 }
 
 header {
-    background-color: var(--white);
+    background-color: var(--dark-bg);
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -53,7 +55,7 @@ header {
 }
 
 header.sticky {
-    background-color: #f8f9fa;
+    background-color: #0d0d0d;
 }
 
 .logo-container {
@@ -87,7 +89,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: var(--black);
+    color: var(--white);
     font-weight: bold;
 }
 
@@ -99,6 +101,26 @@ nav ul li a i {
     margin-right: 5px;
 }
 
+.cart-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: var(--white);
+}
+
+.cart-badge {
+    background-color: var(--neon-blue);
+    color: var(--dark-bg);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8em;
+    position: relative;
+    top: -10px;
+    left: -5px;
+}
+
 .hero {
     position: relative;
     height: 80vh;
@@ -106,6 +128,7 @@ nav ul li a i {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    background-color: var(--dark-bg);
 }
 
 .hero-bg {
@@ -116,6 +139,7 @@ nav ul li a i {
     height: 100%;
     background: url('https://via.placeholder.com/1920x1080?text=Hero+Background') no-repeat center center/cover;
     transform: translateY(0);
+    opacity: 0.5;
 }
 
 .hero-content {
@@ -134,7 +158,7 @@ nav ul li a i {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: var(--neon-glow);
 }
 
 .content {
@@ -156,7 +180,7 @@ nav ul li a i {
 .price {
     font-size: 2em;
     font-weight: bold;
-    color: var(--black);
+    color: var(--white);
     margin-bottom: 25px;
 }
 
@@ -167,7 +191,7 @@ nav ul li a i {
 }
 
 .urgency {
-    background-color: #e6faff;
+    background-color: rgba(230, 250, 255, 0.2);
     padding: 15px;
     font-weight: bold;
     color: var(--neon-blue);
@@ -200,42 +224,43 @@ nav ul li a i {
     display: flex;
     align-items: center;
     gap: 10px;
+    box-shadow: var(--neon-glow);
 }
 
 .primary-btn {
     background-color: var(--neon-blue);
-    color: var(--white);
+    color: var(--dark-bg);
     border-color: var(--neon-blue);
 }
 
 .primary-btn:hover {
     background-color: #009acd;
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue);
 }
 
 .secondary-btn {
-    background-color: var(--white);
+    background-color: var(--dark-bg);
     color: var(--neon-blue);
     border-color: var(--neon-blue);
 }
 
 .secondary-btn:hover {
-    background-color: #e6faff;
+    background-color: #0d0d0d;
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue);
 }
 
 .add-to-cart, .checkout {
     background-color: var(--neon-blue);
-    color: var(--white);
+    color: var(--dark-bg);
     border: 2px solid var(--neon-blue);
 }
 
 .add-to-cart:hover, .checkout:hover {
     background-color: #009acd;
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue);
 }
 
 .cart-count {
@@ -246,17 +271,27 @@ nav ul li a i {
 
 .badge {
     background-color: var(--neon-blue);
-    color: var(--white);
+    color: var(--dark-bg);
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 1em;
     margin-top: 10px;
     display: inline-block;
+    box-shadow: var(--neon-glow);
+}
+
+.neon-card {
+    background-color: rgba(26, 26, 26, 0.8);
+    border: 2px solid var(--neon-blue);
+    border-radius: 15px;
+    box-shadow: var(--neon-glow);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
 }
 
 .benefits {
     padding: 50px 20px;
-    background-color: #f0f0f0;
     text-align: center;
 }
 
@@ -298,7 +333,6 @@ nav ul li a i {
 
 .social-proof {
     padding: 50px 20px;
-    background-color: var(--white);
     text-align: center;
 }
 
@@ -326,12 +360,11 @@ nav ul li a i {
 .counter p {
     font-size: 1em;
     margin-top: 10px;
-    color: var(--black);
+    color: var(--white);
 }
 
 .testimonials {
     padding: 50px 20px;
-    background-color: #f0f0f0;
     text-align: center;
 }
 
@@ -353,9 +386,8 @@ nav ul li a i {
 .testimonial {
     display: none;
     padding: 30px;
-    background-color: var(--white);
+    background-color: transparent;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: opacity 0.5s;
 }
 
@@ -381,10 +413,6 @@ nav ul li a i {
     font-weight: bold;
 }
 
-.carousel-controls {
-    margin-top: 20px;
-}
-
 .carousel-controls button {
     background: none;
     border: none;
@@ -397,7 +425,6 @@ nav ul li a i {
 .guarantee {
     padding: 50px 20px;
     text-align: center;
-    background-color: var(--white);
 }
 
 .guarantee h2 {
@@ -421,7 +448,6 @@ nav ul li a i {
 
 .payments {
     padding: 50px 20px;
-    background-color: #f0f0f0;
     text-align: center;
 }
 
@@ -449,7 +475,6 @@ nav ul li a i {
 
 .faq {
     padding: 50px 20px;
-    background-color: var(--white);
     text-align: center;
 }
 
@@ -467,10 +492,9 @@ nav ul li a i {
     max-width: 800px;
     margin: 0 auto 20px;
     text-align: left;
-    background-color: #f0f0f0;
+    background-color: transparent;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .faq summary {
@@ -482,7 +506,6 @@ nav ul li a i {
 
 .signup {
     padding: 50px 20px;
-    background-color: #f0f0f0;
     text-align: center;
 }
 
@@ -505,9 +528,11 @@ nav ul li a i {
 .signup input {
     padding: 15px;
     width: 70%;
-    border: 1px solid #ccc;
+    border: 1px solid var(--neon-blue);
     border-radius: 5px;
     font-size: 1.2em;
+    background-color: var(--dark-bg);
+    color: var(--white);
 }
 
 .signup button {
@@ -541,23 +566,23 @@ footer i {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.7);
     animation: fadeIn 0.3s;
 }
 
 .modal-content {
-    background-color: var(--white);
+    background-color: var(--dark-bg);
     margin: 15% auto;
     padding: 30px;
     border-radius: 8px;
     width: 80%;
     max-width: 500px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: var(--neon-glow);
 }
 
 .close {
-    color: #aaa;
+    color: var(--white);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -565,7 +590,7 @@ footer i {
 }
 
 .close:hover {
-    color: var(--black);
+    color: var(--neon-blue);
 }
 
 .modal h2 {
@@ -588,9 +613,11 @@ footer i {
 
 .modal input {
     padding: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--neon-blue);
     border-radius: 5px;
     font-size: 1.2em;
+    background-color: var(--dark-bg);
+    color: var(--white);
 }
 
 @keyframes fadeIn {
@@ -619,7 +646,7 @@ footer i {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--white);
+    background-color: var(--dark-bg);
     padding: 10px;
     box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
     text-align: center;
@@ -628,6 +655,57 @@ footer i {
 
 .sticky-buy-bar button {
     width: 90%;
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: var(--dark-bg);
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-close {
+    font-size: 2em;
+    cursor: pointer;
+    color: var(--white);
+    float: right;
+}
+
+.cart-sidebar h2 {
+    color: var(--neon-blue);
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cart-reserve {
+    background-color: rgba(230, 250, 255, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: var(--neon-blue);
+}
+
+.cart-reserve i {
+    margin-right: 10px;
 }
 
 /* Media Queries for Responsive Design */
@@ -673,6 +751,11 @@ footer i {
 
     .sticky-buy-bar {
         display: block;
+    }
+
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
     }
 }
 
