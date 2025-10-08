@@ -49,8 +49,8 @@
             </div>
             <div class="button-group">
                 <a href="#benefits" class="btn primary-btn smooth-scroll"><i class="fas fa-book"></i> View Course Details</a>
-                <button class="btn add-to-cart" onclick="addToCart(true)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-                <button class="btn checkout" onclick="goToCheckout()"><i class="fas fa-credit-card"></i> Go to Checkout</button>
+                <button class="btn add-to-cart" id="initial-add-to-cart" onclick="addToCart(false)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                <button class="btn checkout" onclick="window.location.href='payment.html'"><i class="fas fa-credit-card"></i> Checkout</button>
             </div>
         </div>
     </section>
@@ -58,7 +58,10 @@
     <!-- Benefits Section (Course Details) -->
     <section id="benefits" class="benefits animate-on-scroll neon-card">
         <h2><i class="fas fa-check-circle"></i> Course Details</h2>
-        <div class="price">$19.99 <span class="original-price">$44.99</span> - One-Time Payment</div>
+        <div class="price-container">
+            <span class="original-price">$44.99</span>
+            <span class="new-price">$19.99 - One-Time Payment</span>
+        </div>
         <ul>
             <li><i class="fas fa-check"></i> Lifetime Access to All Materials and Updates</li>
             <li><i class="fas fa-check"></i> Expert Instructors with 10+ Years of Experience</li>
@@ -148,7 +151,7 @@
             <h2><i class="fas fa-shopping-cart"></i> Checkout</h2>
             <p>Your cart has <span id="modal-cart-count">0</span> items.</p>
             <p>Total: <span id="modal-total">$0.00</span></p>
-            <button class="btn primary-btn" onclick="completePurchase()"><i class="fas fa-credit-card"></i> Complete Purchase</button>
+            <button class="btn primary-btn" onclick="window.location.href='payment.html'"><i class="fas fa-credit-card"></i> Complete Purchase</button>
         </div>
     </div>
 
@@ -170,19 +173,19 @@
     <div id="cart-sidebar" class="cart-sidebar">
         <span class="cart-close" onclick="toggleCart()">&times;</span>
         <h2>Your Cart</h2>
-        <div id="cart-items">
+        <div id="cart-items" class="cart-items">
             <!-- Items will be added here dynamically -->
         </div>
-        <p>Total: <span id="cart-total">$0.00</span></p>
-        <div class="cart-reserve">
+        <p class="cart-total">Total: <span id="cart-total">$0.00</span></p>
+        <div id="cart-reserve" class="cart-reserve" style="display: none;">
             <i class="fas fa-clock"></i> Your cart is reserved for: <span id="cart-timer">05:00</span>
         </div>
-        <button class="btn primary-btn" onclick="goToCheckout()">Checkout</button>
+        <button class="btn primary-btn" onclick="window.location.href='payment.html'">Checkout</button>
     </div>
 
-    <!-- Sticky Buy Bar for Mobile -->
-    <div id="sticky-buy-bar" class="sticky-buy-bar">
-        <button class="btn primary-btn" onclick="addToCart(true)"><i class="fas fa-cart-plus"></i> Add to Cart - $19.99</button>
+    <!-- Sticky Add to Cart Button -->
+    <div id="sticky-add-to-cart" class="sticky-add-to-cart" style="display: none;">
+        <button class="btn add-to-cart" onclick="addToCart(true)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
     </div>
 
     <script src="script.js"></script>
