@@ -2,7 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Cart Functionality
     let cartItems = parseInt(localStorage.getItem('cartItems')) || 0;
-    const cartCount = document.getElementById('cart-count');
+    const initialAddToCart = document.getElementById('initial-add-to-cart');
+    const stickyAddToCart = document.getElementById('sticky-add-to-cart');
     const checkoutBtn = document.querySelector('.checkout');
     const modal = document.getElementById('modal');
     const modalCartCount = document.getElementById('modal-cart-count');
@@ -13,18 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
     const cartTimer = document.getElementById('cart-timer');
+    const cartReserve = document.getElementById('cart-reserve');
     const cartBadge = document.getElementById('cart-badge');
     let cartReserveTimer;
     let cartOpen = false;
 
     function updateCartDisplay() {
-        if (cartCount) cartCount.textContent = `Items in Cart: ${cartItems}`;
-        if (cartCount) cartCount.style.display = cartItems > 0 ? 'block' : 'none';
-        checkoutBtn.style.display = cartItems > 0 ? 'inline-block' : 'none';
         modalCartCount.textContent = cartItems;
         modalTotal.textContent = `$${(cartItems * pricePerItem).toFixed(2)}`;
         cartBadge.textContent = cartItems;
         cartBadge.style.display = cartItems > 0 ? 'inline' : 'none';
+        checkoutBtn.style.display = cartItems > 0 ? 'inline-block' : 'none';
+        cartReserve.style.display = cartItems > 0 ? 'block' : 'none';
         localStorage.setItem('cartItems', cartItems);
         updateCartSidebar();
     }
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.innerHTML = `<span>Ultimate Online Course</span><span>$${pricePerItem.toFixed(2)} x ${cartItems}</span>`;
             cartItemsContainer.appendChild(item);
         } else {
-            cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+            cartItemsContainer.innerHTML = '<p style="color: #bbb;">Your cart is empty. Add the course to get started!</p>';
         }
         cartTotal.textContent = `$${(cartItems * pricePerItem).toFixed(2)}`;
     }
@@ -80,11 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (cartOpen) toggleCart();
             }
         }, 1000);
-    }
-
-    window.goToCheckout = function() {
-        modal.style.display = 'block';
-        if (cartOpen) toggleCart(); // Close cart when going to checkout
     };
 
     closeModal.onclick = function() {
@@ -95,13 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target === modal) {
             modal.style.display = 'none';
         }
-    };
-
-    window.completePurchase = function() {
-        alert('Purchase completed! Thank you for your order. (In a real site, integrate with payment gateway)');
-        cartItems = 0;
-        updateCartDisplay();
-        modal.style.display = 'none';
     };
 
     updateCartDisplay();
@@ -153,17 +142,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Animate on Scroll
+    // Animate on Scroll (Sequential)
     const animateElements = document.querySelectorAll('.animate-on-scroll');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
+    let observerIndex = 0;
 
-    animateElements.forEach(el => observer.observe(el));
+    function observeNext() {
+        if (observerIndex < animateElements.length) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                        observerIndex++;
+                        observeNext();
+                    }
+                });
+            }, { threshold: 0.1 });
+            observer.observe(animateElements[observerIndex]);
+        }
+    }
+
+    observeNext();
+
+    // Sticky Add to Cart Trigger
+    window.addEventListener('scroll', () => {
+        const initialBtnRect = initialAddToCart.getBoundingClientRect();
+        if (initialBtnRect.bottom < 0) {
+            stickyAddToCart.style.display = 'block';
+        } else {
+            stickyAddToCart.style.display = 'none';
+        }
+    });
 
     // Social Proof Counters
     function animateCounter(id, start, end, duration) {
@@ -210,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
         showTestimonial(currentIndex);
     });
 
-    // Auto-rotate carousel every 5 seconds
     setInterval(() => {
         currentIndex = (currentIndex + 1) % testimonials.length;
         showTestimonial(currentIndex);
