@@ -15,10 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartTimer = document.getElementById('cart-timer');
     const cartBadge = document.getElementById('cart-badge');
     let cartReserveTimer;
+    let cartOpen = false;
 
     function updateCartDisplay() {
-        cartCount.textContent = `Items in Cart: ${cartItems}`;
-        cartCount.style.display = cartItems > 0 ? 'block' : 'none';
+        if (cartCount) cartCount.textContent = `Items in Cart: ${cartItems}`;
+        if (cartCount) cartCount.style.display = cartItems > 0 ? 'block' : 'none';
         checkoutBtn.style.display = cartItems > 0 ? 'inline-block' : 'none';
         modalCartCount.textContent = cartItems;
         modalTotal.textContent = `$${(cartItems * pricePerItem).toFixed(2)}`;
@@ -44,15 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addToCart = function(openCart = false) {
         cartItems++;
         updateCartDisplay();
-        if (openCart) {
+        if (openCart && !cartSidebar.classList.contains('open')) {
             toggleCart();
+        }
+        if (cartSidebar.classList.contains('open')) {
             startCartReserveTimer();
         }
     };
 
     window.toggleCart = function() {
         cartSidebar.classList.toggle('open');
-        if (cartSidebar.classList.contains('open') && cartItems > 0) {
+        cartOpen = cartSidebar.classList.contains('open');
+        if (cartOpen && cartItems > 0) {
             startCartReserveTimer();
         } else {
             clearInterval(cartReserveTimer);
@@ -73,14 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Your cart reservation has expired.');
                 cartItems = 0;
                 updateCartDisplay();
-                toggleCart();
+                if (cartOpen) toggleCart();
             }
         }, 1000);
     }
 
     window.goToCheckout = function() {
         modal.style.display = 'block';
-        toggleCart(); // Close cart when going to checkout
+        if (cartOpen) toggleCart(); // Close cart when going to checkout
     };
 
     closeModal.onclick = function() {
@@ -113,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const seconds = timer % 60;
             display.textContent = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
             if (--timer < 0) {
-                timer = (randomHours * 3600) + (randomMinutes * 60); // Reset to same random time
+                timer = (randomHours * 3600) + (randomMinutes * 60); // Reset
             }
         }, 1000);
     }
@@ -124,7 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Parallax Effect
     window.addEventListener('scroll', () => {
         const scrollPosition = window.pageYOffset;
-        document.querySelector('.hero-bg').style.transform = `translateY(${scrollPosition * 0.5}px)`;
+        const heroBg = document.querySelector('.hero-bg');
+        if (heroBg) heroBg.style.transform = `translateY(${scrollPosition * 0.5}px)`;
     });
 
     // Sticky Header
@@ -144,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const target = document.getElementById(targetId);
-            target.scrollIntoView({ behavior: 'smooth' });
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
         });
     });
 
@@ -178,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounter('students-counter', 0, 10000, 2000);
     animateCounter('reviews-counter', 0, 5000, 2000);
     animateCounter('countries-counter', 0, 50, 2000);
-    animateCounter('viewers-counter', 0, Math.floor(Math.random() * 20) + 5, 1000); // Fake live viewers
+    animateCounter('viewers-counter', 0, Math.floor(Math.random() * 80) + 20, 1000); // 20-100 viewers
 
     // Testimonials Carousel
     const testimonials = document.querySelectorAll('.testimonial');
@@ -210,19 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = (currentIndex + 1) % testimonials.length;
         showTestimonial(currentIndex);
     }, 5000);
-
-    // Email Signup Form
-    const signupForm = document.getElementById('signup-form');
-    const signupMessage = document.getElementById('signup-message');
-
-    signupForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = signupForm.querySelector('input').value;
-        if (email) {
-            signupMessage.textContent = `Thank you for subscribing with ${email}!`;
-            signupForm.reset();
-        }
-    });
 
     // Exit Intent Popup
     const exitModal = document.getElementById('exit-modal');
