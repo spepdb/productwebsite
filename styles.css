@@ -1,0 +1,468 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.announcement-bar {
+    background-color: #ffcc00;
+    color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.marquee {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+    padding-left: 100%;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.marquee span {
+    margin-right: 50px;
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+header.sticky {
+    background-color: #f8f9fa;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://via.placeholder.com/1920x1080?text=Hero+Background') no-repeat center center/cover;
+    transform: translateY(0);
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding: 50px 20px;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.product-image {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.content {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.4em;
+    margin-bottom: 25px;
+}
+
+.price {
+    font-size: 2em;
+    font-weight: bold;
+    color: #e60000;
+    margin-bottom: 25px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.8em;
+}
+
+.add-to-cart, .checkout {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-to-cart:hover, .checkout:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.cart-count {
+    font-size: 1.2em;
+    margin: 10px 0;
+    display: none;
+}
+
+.urgency {
+    background-color: #ffe6e6;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #e60000;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+}
+
+.video-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.benefits {
+    padding: 50px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.benefits h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.benefits ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.benefits li {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.benefits li:hover {
+    transform: translateX(10px);
+}
+
+.benefits li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-size: 1.5em;
+}
+
+.social-proof {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.counters {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.counter {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.counter p {
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.testimonials {
+    padding: 50px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial {
+    display: none;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: opacity 0.5s;
+}
+
+.testimonial.active {
+    display: block;
+    opacity: 1;
+}
+
+.testimonial p {
+    font-style: italic;
+    font-size: 1.3em;
+}
+
+.testimonial cite {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.carousel-controls {
+    margin-top: 20px;
+}
+
+.carousel-controls button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+.guarantee {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.guarantee h2 {
+    font-size: 2.5em;
+}
+
+.guarantee p {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+}
+
+.trust-badge {
+    margin: 10px;
+    max-width: 150px;
+}
+
+.faq {
+    padding: 50px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.faq h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.faq details {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    text-align: left;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.faq summary {
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.3em;
+}
+
+.signup {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.signup form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.signup input {
+    padding: 15px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+.signup button {
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.signup button:hover {
+    background-color: #0069d9;
+}
+
+#signup-message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #28a745;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.modal button {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.modal button:hover {
+    background-color: #218838;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Animate on Scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Smooth Scroll */
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
