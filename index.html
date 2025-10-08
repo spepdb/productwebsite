@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Announcement Bar -->
+    <!-- Announcement Bar (kept the same) -->
     <div class="announcement-bar">
         <div class="marquee">
             <span><i class="fas fa-bolt"></i> Limited Time Offer: 50% Off!</span>
@@ -55,15 +55,8 @@
                     <a href="#signup" class="btn secondary-btn smooth-scroll"><i class="fas fa-info-circle"></i> Learn More</a>
                 </div>
                 <div id="cart-count" class="cart-count">Items in Cart: 0</div>
+                <span class="badge">Best Seller <i class="fas fa-fire"></i></span>
             </div>
-        </div>
-    </section>
-
-    <!-- Video Trailer Section -->
-    <section id="video-trailer" class="video-section animate-on-scroll">
-        <h2><i class="fas fa-video"></i> Watch the Course Trailer</h2>
-        <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Course Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -77,6 +70,7 @@
             <li><i class="fas fa-users"></i> Private Community Forum for Support</li>
             <li><i class="fas fa-download"></i> Downloadable Resources and Templates</li>
             <li><i class="fas fa-certificate"></i> Certificate of Completion Recognized by Industry</li>
+            <li><i class="fas fa-gift"></i> Free Bonus: Exclusive eBook on Advanced Tips</li>
         </ul>
     </section>
 
@@ -96,6 +90,10 @@
                 <span id="countries-counter">0</span>+
                 <p>Countries</p>
             </div>
+            <div class="counter">
+                <span id="viewers-counter">0</span>
+                <p>People Viewing Now</p>
+            </div>
         </div>
     </section>
 
@@ -104,14 +102,17 @@
         <h2><i class="fas fa-quote-left"></i> What Our Students Say</h2>
         <div class="carousel">
             <div class="testimonial active">
+                <div class="stars">★★★★★</div>
                 <p>"This course changed my career! The content is top-notch and easy to follow."</p>
                 <cite>- John Doe, Software Engineer</cite>
             </div>
             <div class="testimonial">
+                <div class="stars">★★★★★</div>
                 <p>"Amazing value for money. I learned more here than in my college classes."</p>
                 <cite>- Jane Smith, Freelancer</cite>
             </div>
             <div class="testimonial">
+                <div class="stars">★★★★★</div>
                 <p>"The community support is fantastic. Highly recommend to anyone serious about [Topic]."</p>
                 <cite>- Alex Johnson, Entrepreneur</cite>
             </div>
@@ -128,6 +129,21 @@
         <p>If you're not completely satisfied within 30 days, get a full refund – no questions asked.</p>
         <img src="https://via.placeholder.com/200x100?text=Trust+Badge" alt="Trust Badge" class="trust-badge">
         <img src="https://via.placeholder.com/200x100?text=Secure+Payment" alt="Secure Payment" class="trust-badge">
+    </section>
+
+    <!-- Payments Section -->
+    <section class="payments animate-on-scroll">
+        <h2><i class="fas fa-coins"></i> We Accept Cryptocurrencies</h2>
+        <div class="crypto-icons">
+            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin" class="crypto-icon">
+            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum" class="crypto-icon">
+            <img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana" class="crypto-icon">
+            <img src="https://cryptologos.cc/logos/monero-xmr-logo.png" alt="Monero" class="crypto-icon">
+            <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC" class="crypto-icon">
+            <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT" class="crypto-icon">
+            <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB" class="crypto-icon">
+            <img src="https://cryptologos.cc/logos/xrp-xrp-logo.png" alt="XRP" class="crypto-icon">
+        </div>
     </section>
 
     <!-- FAQ -->
@@ -175,6 +191,25 @@
             <p>Total: <span id="modal-total">$0.00</span></p>
             <button class="btn primary-btn" onclick="completePurchase()"><i class="fas fa-credit-card"></i> Complete Purchase</button>
         </div>
+    </div>
+
+    <!-- Exit Intent Modal -->
+    <div id="exit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close exit-close">&times;</span>
+            <h2><i class="fas fa-exclamation-triangle"></i> Wait! Don't Miss Out</h2>
+            <p>Get an extra 10% off by subscribing now!</p>
+            <form id="discount-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn primary-btn"><i class="fas fa-percentage"></i> Claim 10% Off</button>
+            </form>
+            <p id="discount-message"></p>
+        </div>
+    </div>
+
+    <!-- Sticky Buy Bar for Mobile -->
+    <div id="sticky-buy-bar" class="sticky-buy-bar">
+        <button class="btn primary-btn" onclick="addToCart()"><i class="fas fa-cart-plus"></i> Add to Cart - $99.99</button>
     </div>
 
     <script src="script.js"></script>
