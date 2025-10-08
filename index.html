@@ -1,0 +1,150 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Online Course Sales Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="marquee">
+            <span>Limited Time Offer: 50% Off! 🚀</span>
+            <span>Enroll Now and Transform Your Skills!</span>
+            <span>Over 10,000 Students Enrolled Already!</span>
+            <span>Money-Back Guarantee!</span>
+            <span>Limited Spots Available!</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <h1>Master Your Skills with Our Premium Course</h1>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <img src="https://via.placeholder.com/600x400?text=Course+Image" alt="Course Image" class="product-image">
+        <div class="content">
+            <h2>Ultimate Online Course: Advanced [Topic] Mastery</h2>
+            <p>This comprehensive course dives deep into [Topic], covering beginner fundamentals to advanced techniques. You'll learn through interactive videos, hands-on projects, and real-world case studies. Gain skills in [specific skill 1], [specific skill 2], and [specific skill 3]. Perfect for professionals, students, and enthusiasts looking to level up.</p>
+            <div class="price">$99.99 <span class="original-price">$199.99</span></div>
+            <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+            <div id="cart-count" class="cart-count">Items in Cart: 0</div>
+            <button class="checkout" onclick="openCheckoutModal()">Go to Checkout</button>
+        </div>
+    </section>
+
+    <!-- Urgency Timer -->
+    <div class="urgency">
+        Offer Ends In: <span id="timer">00:00:00</span>
+    </div>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <h2>Why Choose This Course?</h2>
+        <ul>
+            <li>Lifetime Access to All Materials, including updates</li>
+            <li>Expert Instructors with 10+ Years of Real-World Experience</li>
+            <li>Interactive Quizzes, Assignments, and Capstone Projects</li>
+            <li>Private Community Forum for Networking and Support</li>
+            <li>Printable Certificate of Completion Recognized by Industry Leaders</li>
+            <li>Bonus Modules on Emerging Trends in [Topic]</li>
+        </ul>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Students Say</h2>
+        <div class="carousel">
+            <div class="testimonial active">
+                <p>"This course changed my life! The depth of content is unmatched."</p>
+                <cite>- John Doe, Software Engineer</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Amazing content and easy to follow. Worth every penny."</p>
+                <cite>- Jane Smith, Marketing Specialist</cite>
+            </div>
+            <div class="testimonial">
+                <p>"The best investment I've made in my education. Highly interactive!"</p>
+                <cite>- Alex Johnson, Entrepreneur</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Incredible value with practical examples and community support."</p>
+                <cite>- Emily Davis, Designer</cite>
+            </div>
+        </div>
+        <button class="carousel-prev" onclick="prevTestimonial()">&#10094;</button>
+        <button class="carousel-next" onclick="nextTestimonial()">&#10095;</button>
+    </section>
+
+    <!-- FAQ Section with Accordion -->
+    <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">What is included in the course?</button>
+                <div class="accordion-content">
+                    <p>Over 50 hours of video lessons, downloadable resources, interactive quizzes, assignments, capstone projects, and lifetime access to updates.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">Is there a refund policy?</button>
+                <div class="accordion-content">
+                    <p>Yes, we offer a 30-day money-back guarantee if you're not satisfied.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">How long do I have access to the course?</button>
+                <div class="accordion-content">
+                    <p>You get lifetime access, including all future updates and bonus materials.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">What if I have questions during the course?</button>
+                <div class="accordion-content">
+                    <p>Our private community forum and email support are available 24/7 for any queries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCheckoutModal()">&times;</span>
+            <h2>Checkout</h2>
+            <p>Total Items: <span id="modal-cart-count">0</span></p>
+            <p>Total Price: <span id="modal-total-price">$0.00</span></p>
+            <form id="checkout-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="card">Card Number:</label>
+                <input type="text" id="card" placeholder="1234 5678 9012 3456" required>
+                <!-- In real site, integrate with Stripe or similar -->
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Course Company. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
