@@ -31,47 +31,82 @@
         </div>
     </header>
 
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#hero" class="smooth-scroll"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#benefits" class="smooth-scroll"><i class="fas fa-check-circle"></i> Benefits</a></li>
+            <li><a href="#testimonials" class="smooth-scroll"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+        </ul>
+    </nav>
+
     <!-- Hero Section -->
     <section id="hero" class="hero parallax">
         <div class="hero-bg"></div>
-        <div class="hero-content neon-card">
-            <h2>Ultimate Online Course: From Beginner to Pro</h2>
-            <p>This comprehensive course covers [Topic] in depth, including advanced techniques, real-world projects, and expert tips. Join thousands of satisfied learners today!</p>
+        <div class="hero-content neon-card animate-on-scroll">
+            <h2>Unlock Your Potential: Master Skills That Pay</h2>
+            <p>The world is changing fast—don't get left behind. Gain real-world skills to build wealth and success, starting today.</p>
             <div class="urgency">
                 <i class="fas fa-clock"></i> Offer Ends In: <span id="timer">00:00:00</span>
             </div>
             <div class="button-group">
                 <a href="#benefits" class="btn primary-btn smooth-scroll"><i class="fas fa-book"></i> View Course Details</a>
-                <button class="btn add-to-cart" id="initial-add-to-cart" onclick="addToCart(false)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-                <button class="btn checkout" onclick="window.location.href='payment.html'"><i class="fas fa-credit-card"></i> Checkout</button>
+                <button class="btn add-to-cart" id="initial-add-to-cart" onclick="addToCart(true)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                <button class="btn checkout" onclick="window.location.href='payment.html'"><i class="fas fa-credit-card"></i> Go to Checkout</button>
             </div>
         </div>
     </section>
 
     <!-- Benefits Section (Course Details) -->
     <section id="benefits" class="benefits animate-on-scroll neon-card">
-        <h2><i class="fas fa-check-circle"></i> Course Details</h2>
+        <h2><i class="fas fa-check-circle"></i> Why Join SkillForge?</h2>
         <div class="price-container">
             <span class="original-price">$44.99</span>
             <span class="new-price">$19.99 - One-Time Payment</span>
         </div>
-        <ul>
-            <li><i class="fas fa-check"></i> Lifetime Access to All Materials and Updates</li>
-            <li><i class="fas fa-check"></i> Expert Instructors with 10+ Years of Experience</li>
-            <li><i class="fas fa-check"></i> Interactive Quizzes, Assignments, and Projects</li>
-            <li><i class="fas fa-check"></i> Private Community Forum for Support</li>
-            <li><i class="fas fa-check"></i> Downloadable Resources and Templates</li>
-            <li><i class="fas fa-check"></i> Certificate of Completion Recognized by Industry</li>
+        <ul class="benefits-flow">
+            <li class="benefit-item">
+                <i class="fas fa-infinity benefit-icon"></i>
+                Lifetime Access to All Materials and Updates
+            </li>
+            <li class="benefit-arrow"><i class="fas fa-arrow-down"></i></li>
+            <li class="benefit-item">
+                <i class="fas fa-chalkboard-teacher benefit-icon"></i>
+                Expert Instructors with 10+ Years of Experience
+            </li>
+            <li class="benefit-arrow"><i class="fas fa-arrow-down"></i></li>
+            <li class="benefit-item">
+                <i class="fas fa-puzzle-piece benefit-icon"></i>
+                Interactive Quizzes, Assignments, and Projects
+            </li>
+            <li class="benefit-arrow"><i class="fas fa-arrow-down"></i></li>
+            <li class="benefit-item">
+                <i class="fas fa-users benefit-icon"></i>
+                Private Community Forum for Support
+            </li>
+            <li class="benefit-arrow"><i class="fas fa-arrow-down"></i></li>
+            <li class="benefit-item">
+                <i class="fas fa-download benefit-icon"></i>
+                Downloadable Resources and Templates
+            </li>
+            <li class="benefit-arrow"><i class="fas fa-arrow-down"></i></li>
+            <li class="benefit-item">
+                <i class="fas fa-certificate benefit-icon"></i>
+                Certificate of Completion Recognized by Industry
+            </li>
         </ul>
-        <div class="crypto-icons">
-            <img src="assets/bitcoin.png" alt="Bitcoin" class="crypto-icon">
-            <img src="assets/ethereum.png" alt="Ethereum" class="crypto-icon">
-            <img src="assets/solana.png" alt="Solana" class="crypto-icon">
-            <img src="assets/monero.png" alt="Monero" class="crypto-icon">
-            <img src="assets/usdc.png" alt="USDC" class="crypto-icon">
-            <img src="assets/usdt.png" alt="USDT" class="crypto-icon">
-            <img src="assets/bnb.png" alt="BNB" class="crypto-icon">
-            <img src="assets/xrp.png" alt="XRP" class="crypto-icon">
+        <div class="crypto-section">
+            <h3>We Accept Cryptocurrencies</h3>
+            <div class="crypto-icons">
+                <img src="assets/bitcoin.png" alt="Bitcoin" class="crypto-icon">
+                <img src="assets/ethereum.png" alt="Ethereum" class="crypto-icon">
+                <img src="assets/solana.png" alt="Solana" class="crypto-icon">
+                <img src="assets/monero.png" alt="Monero" class="crypto-icon">
+                <img src="assets/usdc.png" alt="USDC" class="crypto-icon">
+                <img src="assets/usdt.png" alt="USDT" class="crypto-icon">
+                <img src="assets/bnb.png" alt="BNB" class="crypto-icon">
+                <img src="assets/xrp.png" alt="XRP" class="crypto-icon">
+            </div>
         </div>
     </section>
 
@@ -79,20 +114,20 @@
     <section class="social-proof animate-on-scroll neon-card">
         <h2><i class="fas fa-globe"></i> Join Our Growing Community</h2>
         <div class="counters">
-            <div class="counter">
-                <span id="students-counter">0</span>+
+            <div class="counter-item">
+                <span id="students-counter" class="counter-value">0</span>+
                 <p>Students Enrolled</p>
             </div>
-            <div class="counter">
-                <span id="reviews-counter">0</span>+
+            <div class="counter-item">
+                <span id="reviews-counter" class="counter-value">0</span>+
                 <p>5-Star Reviews</p>
             </div>
-            <div class="counter">
-                <span id="countries-counter">0</span>+
+            <div class="counter-item">
+                <span id="countries-counter" class="counter-value">0</span>+
                 <p>Countries</p>
             </div>
-            <div class="counter">
-                <span id="viewers-counter">0</span>
+            <div class="counter-item">
+                <span id="viewers-counter" class="counter-value">0</span>
                 <p>People Viewing Now</p>
             </div>
         </div>
@@ -137,31 +172,6 @@
         <p><i class="fas fa-copyright"></i> 2025 SkillForge. All rights reserved.</p>
     </footer>
 
-    <!-- Modal for Checkout -->
-    <div id="modal" class="modal">
-        <div class="modal-content neon-card">
-            <span class="close">&times;</span>
-            <h2><i class="fas fa-shopping-cart"></i> Checkout</h2>
-            <p>Your cart has <span id="modal-cart-count">0</span> items.</p>
-            <p>Total: <span id="modal-total">$0.00</span></p>
-            <button class="btn primary-btn" onclick="window.location.href='payment.html'"><i class="fas fa-credit-card"></i> Complete Purchase</button>
-        </div>
-    </div>
-
-    <!-- Exit Intent Modal -->
-    <div id="exit-modal" class="modal">
-        <div class="modal-content neon-card">
-            <span class="close exit-close">&times;</span>
-            <h2><i class="fas fa-exclamation-triangle"></i> Wait! Don't Miss Out</h2>
-            <p>Get an extra 10% off by subscribing now!</p>
-            <form id="discount-form">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit" class="btn primary-btn"><i class="fas fa-percentage"></i> Claim 10% Off</button>
-            </form>
-            <p id="discount-message"></p>
-        </div>
-    </div>
-
     <!-- Cart Sidebar -->
     <div id="cart-sidebar" class="cart-sidebar">
         <span class="cart-close" onclick="toggleCart()">&times;</span>
@@ -180,6 +190,9 @@
     <div id="sticky-add-to-cart" class="sticky-add-to-cart" style="display: none;">
         <button class="btn add-to-cart" onclick="addToCart(true)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
     </div>
+
+    <!-- Recent Enrollment Notifications -->
+    <div id="notification-container" class="notification-container"></div>
 
     <script src="script.js"></script>
 </body>
